@@ -100,7 +100,7 @@ public class main {
         ArrayList<Human> Family = getArrayFamily();
         System.out.println("Введите имя человека № 1: ");
         String enterNameHuman1 = getLine();
-        String findMemberFamily1 = "";
+        String findMemberFamily1 = "Mother";
         for (int i = 0; i < Family.size(); i++) { 
             String name = Family.get(i).getName();
             if(name == enterNameHuman1){
@@ -117,7 +117,7 @@ public class main {
         ArrayList<Human> Family = getArrayFamily();
         System.out.println("Введите имя человека № 2: ");
         String enterNameHuman2 = getLine();
-        String findMemberFamily2 = "";
+        String findMemberFamily2 = "Father";
         for (int i = 0; i < Family.size(); i++) { 
             String name = Family.get(i).getName();
             if(name == enterNameHuman2){
@@ -137,25 +137,21 @@ public class main {
         ArrayList<String> allActions = getArrayActions();
         System.out.println("Список действий: " + allActions);
         System.out.println("Введите действие: ");
-        if(MemberFamily1 == "Mother"){
-            String action = getLine();
-            switch (action){
-                case "say":
-                    if (MemberFamily2 == "Father"){
-                        System.out.printf("разрешаю тебе взять бутылку с пивом.");
-                    } else{
-                        System.out.printf("не разрешаю тебе взять бутылку с пивом.");
-                    }              
-                    break;
-                // case "do":
-                //     System.out.printf(getName() + "пьет воду.");
-                //     break;
-                default:
-                    System.out.printf("Вы решили ничего не делать.");
+        
+        String action = getLine();
+        switch (action){
+            case "say":
+                if (MemberFamily2 == "Father" && MemberFamily1 == "Mother"){
+                    System.out.printf("разрешаю тебе взять бутылку с пивом.");
+                } else{
+                    System.out.printf("не разрешаю тебе взять бутылку с пивом.");
+                }              
+                break; 
+            default:
+                System.out.printf("Вы решили ничего не делать.");
             }
             return action;  
-        }
-        return MemberFamily2;
+
     }
 
     public static void main(String[] args) throws Exception {
