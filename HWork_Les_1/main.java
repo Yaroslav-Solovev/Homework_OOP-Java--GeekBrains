@@ -45,11 +45,11 @@ public class main {
         Human Bart = new Human(3, "Bart", "Male", 16, "Schoolboy", "Simson", "Brother");
         Human Lisa = new Human(4, "Lisa", "Female", 12, "Schoolgirl", "Simson", "Sister");
         Human Meggie = new Human(5, "Meggie", "Female", 4, "Kindergarten","Simson", "Sister");
-        // Human Piter = new Human(6, "Piter", "Male", 30, "Worker", "Family Guy","Father");
-        // Human Lois = new Human(7, "Lois", "Female", 24, "Housewife", "Family Guy", "Mother");
-        // Human Chris = new Human(8, "Chris", "Male", 16, "Schoolboy", "Family Guy", "Brother");
-        // Human Meg = new Human(9, "Meg", "Female", 14, "Kindergarten", "Family Guy", "Sister");
-        // Human Stewie = new Human(10, "Stewie", "Male", 16, "Schoolboy", "Family Guy", "Brother");
+        Human Piter = new Human(6, "Piter", "Male", 30, "Worker", "Family Guy","Father");
+        Human Lois = new Human(7, "Lois", "Female", 24, "Housewife", "Family Guy", "Mother");
+        Human Chris = new Human(8, "Chris", "Male", 16, "Schoolboy", "Family Guy", "Brother");
+        Human Meg = new Human(9, "Meg", "Female", 14, "Kindergarten", "Family Guy", "Sister");
+        Human Stewie = new Human(10, "Stewie", "Male", 16, "Schoolboy", "Family Guy", "Brother");
         
         ArrayList<Human> Family = new ArrayList<Human>();
         Family.add(Homer);
@@ -57,11 +57,11 @@ public class main {
         Family.add(Bart);
         Family.add(Lisa);
         Family.add(Meggie);
-        // Family.add(Piter);
-        // Family.add(Lois);
-        // Family.add(Chris);
-        // Family.add(Meg);
-        // Family.add(Stewie);
+        Family.add(Piter);
+        Family.add(Lois);
+        Family.add(Chris);
+        Family.add(Meg);
+        Family.add(Stewie);
         return Family;
     }
 
@@ -97,7 +97,11 @@ public class main {
     }
 
     public static String MemFamily1 () throws Exception{
+        System.out.println("Список имен: ");
         ArrayList<Human> Family = getArrayFamily();
+        for (int i = 0; i < Family.size(); i++) {
+            System.out.println(Family.get(i).getName());
+        }
         System.out.println("Введите имя человека № 1: ");
         String enterNameHuman1 = getLine();
         String findMemberFamily1 = "Mother";
@@ -107,6 +111,8 @@ public class main {
                 findMemberFamily1 = Family.get(i).getMemberFamily();
                 if(findMemberFamily1 != "Mother"){
                     System.out.println("Это не мама!");
+                }else{
+                    findMemberFamily1 = Family.get(i).getMemberFamily();
                 }
             }
         }
@@ -124,6 +130,8 @@ public class main {
                 findMemberFamily2 = Family.get(i).getMemberFamily();
                 if(findMemberFamily2 != "Father"){
                     System.out.println("Это не отец!");
+                }else{
+                    findMemberFamily2 = Family.get(i).getMemberFamily();
                 }
             }
         }
@@ -154,6 +162,7 @@ public class main {
 
     }
 
+
     public static void main(String[] args) throws Exception {
         ArrayList<Human> Family = getArrayFamily();
         // for (int i = 0; i < Family.size(); i++) { // Проверка вывода всего списка людей
@@ -161,7 +170,9 @@ public class main {
         // }
         ArrayList<String> allActions = getArrayActions();
 
-        // findFamilyMember(Family); // Поиск по критерию - член семьи
+        findFamilyMember(Family); // Поиск по критерию - член семьи
+
         getOpenDoor();
     }
+
 }
