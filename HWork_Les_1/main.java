@@ -97,7 +97,7 @@ public class main {
     }
 
     public static String MemFamily1 () throws Exception{
-        System.out.println("Список имен: ");
+
         ArrayList<Human> Family = getArrayFamily();
         for (int i = 0; i < Family.size(); i++) {
             System.out.println(Family.get(i).getName());
@@ -172,7 +172,7 @@ public class main {
 
         findFamilyMember(Family); // Поиск по критерию - член семьи
 
-        getOpenDoor();
+        // getOpenDoor(); // Выполнение программы по выполнению действий
     }
 
 }
