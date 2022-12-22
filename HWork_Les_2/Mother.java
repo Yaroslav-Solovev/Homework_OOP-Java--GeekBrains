@@ -29,6 +29,5 @@ public class Mother implements Actions {
         Mother mother = new Mother();
         mother.speak();
         mother.makeDo();
-        mother.nothing();
     } 
 }

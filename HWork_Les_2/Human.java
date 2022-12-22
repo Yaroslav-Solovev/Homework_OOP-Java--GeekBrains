@@ -1,23 +1,17 @@
 package HWork_Les_2;
 
-public class Human {
+abstract class Human {
     
-    protected Integer id;
-    protected String name;
-    protected String gender;
-    protected Integer age;
-    protected String socialStatus;
-    protected String memberFamily;
-    protected String groupFamily;
+    private Integer id;
+    private String name;
+    private String gender;
+    private Integer age;
    
-    public Human(Integer id, String name, String gender, Integer age, String socialStatus, String groupFamily, String memberFamily){
+    public Human(Integer id, String name, String gender, Integer age){
         this.id = id;
         this.name = name;
         this.gender = gender;
         this.age = age;
-        this.socialStatus = socialStatus;
-        this.groupFamily = groupFamily;
-        this.memberFamily = memberFamily;
     }
 
     public Integer getId(){
@@ -32,15 +26,6 @@ public class Human {
     public Integer getAge(){
         return age;
     }
-    public String getSocialStatus(){
-        return socialStatus;
-    }
-    public String getGroupFamily(){
-        return groupFamily;
-    }
-    public String getMemberFamily(){
-        return memberFamily;
-    }
     
     public void setId(Integer id){
         this.id = id; 
@@ -54,25 +39,6 @@ public class Human {
     public void setAge(Integer age){
         this.age = age;
     }
-    public void setSocialStatus(String socialStatus){
-        this.socialStatus = socialStatus; 
-    }
-    public void setGroupFamily(String groupFamily){
-        this.groupFamily = groupFamily; 
-    }
-    public void setMemberFamily(String memberFamily){
-        this.memberFamily = memberFamily; 
-    }
   
-    public String getInfo() {
-        return String.format("ID: %s, Name: %s, Gender: %s,  Age: %d,  Social status: %s, Member family: %s.", 
-        this.id, this.name, this.gender, this.age, this.socialStatus, this.groupFamily, this.memberFamily, this.getClass().getSimpleName());
-    }
-
-    // public abstract void makeSpeak();
-
-    // public abstract void doAny();
-    // public void Myperents(){
-    //     System.out.println();
-    // }
+    public abstract String getInfo();
 }

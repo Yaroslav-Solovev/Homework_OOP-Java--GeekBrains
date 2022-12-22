@@ -26,6 +26,5 @@ public class Child implements Actions{
         Child child = new Child();
         child.speak();
         child.eat();
-        child.nothing();
     } 
 }

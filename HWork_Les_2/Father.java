@@ -28,6 +28,5 @@ public class Father implements Actions{
         Father father = new Father();
         father.makeDo();
         father.speak();
-        father.nothing();
     } 
 }
