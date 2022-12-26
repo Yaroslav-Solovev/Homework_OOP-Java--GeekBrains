@@ -16,11 +16,11 @@ public class main {
         Family Bart = new Family(3, "Bart", "Male", 16, "Schoolboy", "Simson", "Brother");
         Family Lisa = new Family(4, "Lisa", "Female", 12, "Schoolgirl", "Simson", "Sister");
         Family Meggie = new Family(5, "Meggie", "Female", 4, "Kindergarten","Simson", "Sister");
-        // Family Piter = new Family(6, "Piter", "Male", 30, "Worker", "Family Guy","Father");
-        // Family Lois = new Family(7, "Lois", "Female", 24, "Housewife", "Family Guy", "Mother");
-        // Family Chris = new Family(8, "Chris", "Male", 16, "Schoolboy", "Family Guy", "Brother");
-        // Family Meg = new Family(9, "Meg", "Female", 14, "Kindergarten", "Family Guy", "Sister");
-        // Family Stewie = new Family(10, "Stewie", "Male", 16, "Schoolboy", "Family Guy", "Brother");
+        Family Piter = new Family(6, "Piter", "Male", 30, "Worker", "Family Guy","Father");
+        Family Lois = new Family(7, "Lois", "Female", 24, "Housewife", "Family Guy", "Mother");
+        Family Chris = new Family(8, "Chris", "Male", 16, "Schoolboy", "Family Guy", "Brother");
+        Family Meg = new Family(9, "Meg", "Female", 14, "Kindergarten", "Family Guy", "Sister");
+        Family Stewie = new Family(10, "Stewie", "Male", 16, "Schoolboy", "Family Guy", "Brother");
         
         ArrayList<Family> Family = new ArrayList<Family>();
         Family.add(Homer);
@@ -28,11 +28,11 @@ public class main {
         Family.add(Bart);
         Family.add(Lisa);
         Family.add(Meggie);
-        // Family.add(Piter);
-        // Family.add(Lois);
-        // Family.add(Chris);
-        // Family.add(Meg);
-        // Family.add(Stewie);
+        Family.add(Piter);
+        Family.add(Lois);
+        Family.add(Chris);
+        Family.add(Meg);
+        Family.add(Stewie);
         return Family;
     }
 
@@ -43,16 +43,16 @@ public class main {
         int search = enterConsole.getInt();
         if (search == 1 | search == 2 | search == 3 | search == 4){
             for (int i = 0; i < Family.size(); i++) {
-                if (search == 1 && Family.get(i).getMemberFamily() == "Father"){
+                if (search == 1 && Family.get(i).getMemberFamily().equalsIgnoreCase("Father") == true){
                     System.out.println(Family.get(i).getInfo());
                 }
-                if (search == 2 && Family.get(i).getMemberFamily() == "Mother"){
+                if (search == 2 && Family.get(i).getMemberFamily().equalsIgnoreCase("Mother") == true){
                     System.out.println(Family.get(i).getInfo());
                 }
-                if (search == 3 && Family.get(i).getMemberFamily() == "Brother"){
+                if (search == 3 && Family.get(i).getMemberFamily().equalsIgnoreCase("Brother") == true){
                     System.out.println(Family.get(i).getInfo());
                 }
-                if (search == 4 && Family.get(i).getMemberFamily() == "Sister"){
+                if (search == 4 && Family.get(i).getMemberFamily().equalsIgnoreCase("Sister") == true){
                     System.out.println(Family.get(i).getInfo());
                 }
             }
@@ -99,12 +99,11 @@ public class main {
         String NameMemberFamily2 = nameMemberFamily2.get(0);
         String MemberFamily2 = nameMemberFamily2.get(1);
         
-        // ArrayList<String> allActions = getArrayActions();
-        // System.out.println("Список действий: " + allActions);
-        // System.out.println("Введите действие: ");
+        ArrayList<String> allActions = getArrayActions();
+        System.out.println("Список действий: " + allActions);
         Father father = new Father();
         Mother mother = new Mother();
-        // Child child = new Child();
+        Child child = new Child();
         
         if (MemberFamily1.equalsIgnoreCase("Father") == true && MemberFamily2.equalsIgnoreCase("Mother") == true){
             System.out.printf(NameMemberFamily1);
@@ -122,6 +121,10 @@ public class main {
                 case "no":
                     System.out.printf(NameMemberFamily2);
                     mother.makeDo();
+                    break;
+                case "oops":
+                    // System.out.printf(Child);
+                    child.eat();
                     break;
                 default:
                     System.out.printf("Вы решили ничего не делать.");
@@ -155,13 +158,18 @@ public class main {
     public static void main(String[] args) throws Exception{
     
         ArrayList<Family> Family = getArrayFamily();
-        // for (int i = 0; i < Family.size(); i++) { // Проверка вывода всего списка людей
-            // System.out.println(Family.get(i).getInfo());
-        for (int i = 0; i < Family.size(); i++) { // Вывод известных имен
-            System.out.println(Family.get(i).getName());
-        }
-        ArrayList<String> allActions = getArrayActions();
-        // findFamilyMember(Family); // Поиск по критерию - член семьи
-        getOpenDoor(); // Выполнение программы по выполнению действий
+        System.out.println("Выбирите критерий выполнения программы: 1. Поиск по критерию - член семьи; 2 - Выполнение действий членов семьи по открытию двери.");
+        EnterConsole enterConsole = new EnterConsole();
+        String action = enterConsole.getLine();
+        switch (action){
+            case "1":
+                findFamilyMember(Family); // Поиск по критерию - член семьи
+                break;
+            case "2":
+                getOpenDoor(); // Выполнение программы по выполнению действий // Пример ввода: Homer - отец, Marge - мать;
+                break;
+            default:
+                System.out.printf("Вы решили ничего не делать.");
+            }
     }
 }
