@@ -10,6 +10,7 @@ public class main {
     static Scanner scanner = new Scanner(System.in);
 
     ArrayList<Family> Family;
+    ArrayList<Cat> catFamily;
     ArrayList<String> allActions;
 
     // Метод формирования списка людей
@@ -162,12 +163,22 @@ public class main {
             }
 
     }
-  
+    
+    // Котики пример обобщения;
+    public static ArrayList<Cat> getArrayCat(){
+        Cat<String, String> Alf = new Cat<String, String>(1, "Alf", "Male", 5, "stop", "sleep");
+        ArrayList<Cat> catFamily = new ArrayList<Cat>();
+        catFamily.add(Alf);
+        return catFamily;
+    }
+
+
     public static void main(String[] args) throws Exception{
 
         ArrayList<Family> Family = getArrayFamily();
+        ArrayList<Cat> catFamily = getArrayCat();
         Printer printer = new Printer();
-        String find[] = {"1. Поиск по критерию - член семьи;", "2. Выполнение действий членов семьи по открытию двери."};
+        String find[] = {"1. Поиск по критерию - член семьи;", "2. Выполнение действий членов семьи по открытию двери;", "3. Котики (пример обобщения)."};
         System.out.println("Выбирите критерий выполнения программы: ");
         printer.<String>print(find);
         EnterConsole enterConsole = new EnterConsole();
@@ -179,9 +190,13 @@ public class main {
             case "2":
                 getOpenDoor(); // Выполнение программы по выполнению действий // Пример ввода: Homer - отец, Marge - мать;
                 break;
+            case "3":
+                for (int i = 0; i < catFamily.size(); i++) { // Котики пример обобщения;
+                    System.out.println(catFamily.get(i).getInfo());
+                }; 
+                break;
             default:
                 System.out.printf("Вы решили ничего не делать.");
             }
-
     }
 }

@@ -1,6 +1,6 @@
 package HWork_Les_4;
 
-public class Child implements Actions{
+public class Child implements Actions {
 
     @Override
     public void speak() {
