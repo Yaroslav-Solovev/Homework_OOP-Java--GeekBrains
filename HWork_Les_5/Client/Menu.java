@@ -25,6 +25,7 @@ public class Menu {
                 .append("2 - Вывод Главного управления\n")
                 .append("3 - Вывод Производственныого отдела\n")
                 .append("4 - Поиск сотрудника\n")
+                .append("5 - Сохранение базы в файл\n")
                 .append("0 - exit\n");
         
         while (true) {
@@ -41,6 +42,9 @@ public class Menu {
                     break;
                 case "4":
                     findWorker.printBase();
+                    break;
+                case "5":
+                    FileSafe.fileSafe();
                     break;
                 case "0":
                     return;
