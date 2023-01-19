@@ -4,6 +4,7 @@ import HWork_Les_5.Core.Operations.OutAllWorkers;
 import HWork_Les_5.Core.Operations.OutPO;
 import HWork_Les_5.Core.Operations.FindWorker;
 import HWork_Les_5.Core.Operations.OutAUP;
+import HWork_Les_5.Core.Operations.OutMiddleSalary;
 
 public class Menu {
     
@@ -23,9 +24,10 @@ public class Menu {
                 .append("\n ==== \n")
                 .append("1 - Вывод всей базы сотрудников\n")
                 .append("2 - Вывод Главного управления\n")
-                .append("3 - Вывод Производственныого отдела\n")
+                .append("3 - Вывод Производственного отдела\n")
                 .append("4 - Поиск сотрудника\n")
                 .append("5 - Сохранение базы в файл\n")
+                .append("6 - Среднее арифметическое значение по зарплатам\n")
                 .append("0 - exit\n");
         
         while (true) {
@@ -45,6 +47,9 @@ public class Menu {
                     break;
                 case "5":
                     FileSafe.fileSafe();
+                    break;
+                case "6":
+                    OutMiddleSalary.middleSalary();
                     break;
                 case "0":
                     return;
